@@ -1,0 +1,16 @@
+host: local 
+connection: local 
+become: yes
+
+pre_task: 
+  name: "Update System"
+  dnf:
+      update_cache: yes
+      update_only: yes
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+
+
+tasks: 
+  - include: tasks/user.yml
+  - include: tasks/docker.yml
+  - include: tasks/kubernetes.yml 

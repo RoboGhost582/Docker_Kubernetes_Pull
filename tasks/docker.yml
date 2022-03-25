@@ -1,0 +1,9 @@
+- name: Installing Docker Repo
+  command: sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 
+
+- name: Installing Docker Repo (PT.2)
+  command: sudo dnf repolist -v
+
+- name: Installing Docker
+  command: sudo dnf install docker -y 
+  
