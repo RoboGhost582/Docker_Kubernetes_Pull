@@ -1,8 +1,8 @@
-host: local 
+hosts: local 
 connection: local 
 become: yes
 
-pre_task: 
+pre_tasks: 
   name: "Update System"
   dnf:
       update_cache: yes
