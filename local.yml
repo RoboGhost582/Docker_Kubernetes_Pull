@@ -1,16 +1,17 @@
-hosts: localhost
-connection: local 
-become: yes
+---
+- hosts: localhost
+  connection: local 
+  become: yes 
 
-pre_tasks: 
-  name: "Update System"
-  dnf:
+  pre_tasks:
+  - name: Apply Updates (CentOS)
+    dnf: 
       update_cache: yes
       update_only: yes
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+    when: ansible_distribution == 'CentOS'
 
 
-tasks: 
-  - include: tasks/user.yml
-  - include: tasks/docker.yml
-  - include: tasks/kubernetes.yml 
+  tasks: 
+    - include: tasks/user.yml
+    - include: tasks/docker.yml
+    - include: tasks/kubernetes.yml 
