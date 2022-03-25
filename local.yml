@@ -13,5 +13,5 @@
 
   tasks: 
     - include: tasks/user.yml
-    - include: tasks/docker.yml
+   # - include: tasks/docker.yml
     - include: tasks/kubernetes.yml 
