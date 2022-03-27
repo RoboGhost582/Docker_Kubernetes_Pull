@@ -14,6 +14,7 @@
     apt-cache policy docker-ce &&
     sudo apt install docker-ce
   when: ansible_distribution == 'Ubuntu'
+  become: True
 
 - name: Start Docker
   systemd:
