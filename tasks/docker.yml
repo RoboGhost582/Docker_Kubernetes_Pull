@@ -1,3 +1,5 @@
+  become: True
+  
 - name: Installing Docker Repo
   command: sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
   when: ansible_distribution == 'CentOS'
@@ -14,7 +16,6 @@
     apt-cache policy docker-ce &&
     sudo apt install docker-ce
   when: ansible_distribution == 'Ubuntu'
-  become: True
 
 - name: Start Docker
   systemd:
