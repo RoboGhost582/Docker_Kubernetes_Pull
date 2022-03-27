@@ -10,8 +10,8 @@
         update_only: yes
       when: ansible_distribution == 'CentOS'
 
-    - name: Apply Updates (CentOS)
-      dnf:
+    - name: Apply Updates (Ubuntu)
+      apt:
         update_cache: yes
       when: ansible_distribution == 'Ubuntu'
 
