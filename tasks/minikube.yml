@@ -7,9 +7,8 @@
   when: ansible_distribution == 'CentOS'
 
 - name: Installing Minikube (Ubuntu)
-  shell:
-    - curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-    - sudo mkdir -p /usr/local/bin/
-    - sudo install minikube /usr/local/bin/
-    - sudo chmod 755 /usr/local/bin/minikube
+  shell: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+         && sudo mkdir -p /usr/local/bin/ \ 
+         && sudo install minikube /usr/local/bin/
+         && sudo chmod 755 /usr/local/bin/minikube
   when: ansible_distribution == 'Ubuntu'
