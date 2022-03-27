@@ -16,7 +16,7 @@
       when: ansible_distribution == 'Ubuntu'
 
   tasks:
-    - include: tasks/user.yml
+    #- include: tasks/user.yml
     - include: tasks/docker.yml
     - include: tasks/kubectl.yml
     - include: tasks/minikube.yml
