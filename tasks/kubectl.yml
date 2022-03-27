@@ -24,7 +24,7 @@
   command: sudo dnf install kubectl -y
   when: ansible_distribution == 'CentOS'
   
-- name: Installing kubectl
+- name: Installing kubectl (Ubuntu)
   loop:
     - >-
       curl -LO "https://dl.k8s.io/release/$(curl -L -s
