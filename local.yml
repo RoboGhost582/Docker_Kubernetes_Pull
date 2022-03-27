@@ -1,22 +1,22 @@
 ---
 - hosts: localhost
-  connection: local 
-  become: yes 
+  connection: local
+  become: true
 
   pre_tasks:
-  - name: Apply Updates (CentOS)
-    dnf: 
-      update_cache: yes
-      update_only: yes
-    when: ansible_distribution == 'CentOS'
-    
-  - name: Apply Updates (CentOS)
-    dnf: 
-      update_cache: yes
-    when: ansible_distribution == 'Ubuntu'
+    - name: Apply Updates (CentOS)
+      dnf:
+        update_cache: yes
+        update_only: yes
+      when: ansible_distribution == 'CentOS'
 
+    - name: Apply Updates (CentOS)
+      dnf:
+        update_cache: yes
+      when: ansible_distribution == 'Ubuntu'
 
-  tasks: 
+  tasks:
     - include: tasks/user.yml
-   # - include: tasks/docker.yml
-    - include: tasks/kubernetes.yml 
+    - include: tasks/docker.yml
+    - include: tasks/kubectl.yml
+    - include: tasks/minikube.yml
